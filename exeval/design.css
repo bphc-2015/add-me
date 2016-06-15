@@ -1,0 +1,50 @@
+#box {
+  border: 5px solid black;
+  position: absolute;
+  height: 400px;
+  width: 300px;
+  top: 250px;  
+  left: 470px;
+  background: #838084;
+  border-radius: 10px;
+}
+#expr {
+   position:relative;
+   top: 10px;
+   left: 40px;
+   font-size: 20px;
+}
+#key {
+   position:relative;
+   left: 65px;
+}
+body { background: #E5BBBB; 
+}
+p { font-size: 20px;}
+button{ font-size: 20px;
+background-color: #4C8BF9;
+border-radius: 8px;
+width: 40px;
+border: 2px solid black;
+}
+button:hover {
+background-color: white;
+}
+#data { background-color: #bccd95;
+border: 2px solid black;
+height: 25px;
+position: relative;
+left: 13px;
+}
+#brack { background-color: #bccd95;
+border: 2px solid black;
+height: 25px;
+position: relative;
+left: 2px;
+}
+#res { background-color: #bccd95;
+border: 2px solid black;
+height: 25px;
+position: relative;
+left: 5px;
+}
