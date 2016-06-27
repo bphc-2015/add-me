@@ -6,10 +6,10 @@ function myFunc(){
     else{
         xhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
+    var str = document.getElementById("query").innerHTML;
+    document.getElementById("query")="";
     xhttp.onreadystatechange=function(){
        if(xhttp.readyState == 4 && xhttp.status == 200){
-           var str = document.getElementById("query").innerHTML;
-           document.getElementById("query")="";
            document.getElementById("para").innerHTML=xhttp.responseText;
        } 
     };
