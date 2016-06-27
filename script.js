@@ -7,7 +7,7 @@ function myFunc(){
         xhttp = new ActiveXObject("Microsoft.XMLHTTP");
     }
     var str = document.getElementById("query").innerHTML;
-    document.getElementById("query")="";
+    document.getElementById("query").innerHTML="";
     xhttp.onreadystatechange=function(){
        if(xhttp.readyState == 4 && xhttp.status == 200){
            document.getElementById("para").innerHTML=xhttp.responseText;
