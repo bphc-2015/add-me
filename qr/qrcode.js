@@ -10,21 +10,20 @@ module.exports = function (router) {
     }
 
 
-    router.get('/qrcode', function (request, response) {
-        if (request.method == 'GET' && request.url == '/qrcode') {
-            var code = qr.image("my-qr-code-text", {
-                type: 'svg',
-                ec_level: 'H',
-                size: 10,
-                margin: 0
-            });
-            response.type('svg');
-            code.pipe(response);
-        } else {
-            send404(response);
-        }
+    router.post('/qrcode', function (request, response) {
+        //if (request.method == 'GET' && request.url == '/qrcode') {
+        //^^this part is already ensured by the express router.
+        var code = qr.image(request.body.text, {
+            type: 'svg',
+            ec_level: 'H',
+            size: 10,
+            margin: 0
+        });
+        console.log(request.body);
+        response.type('svg');
+        code.pipe(response);
     });
     router.get('/', function (request, response) {
-        
+
     });
 };

@@ -13,6 +13,8 @@ function myFunc(){
            document.getElementById("para").innerHTML=xhttp.responseText;
        } 
     };
-    xhttp.open("GET", "/qrcode", true);                 //the second argument needs to be changed
-    xhttp.send();
+    xhttp.open("POST", "/qrcode", true);
+    xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+    xhttp.send(JSON.stringify({'text': str}));
+    
 }
