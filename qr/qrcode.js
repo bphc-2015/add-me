@@ -9,7 +9,9 @@ module.exports = function (router) {
         response.end();
     }
 
-
+    router.get('/qrcode', function (request, response) {
+        response.render('index.html');
+    });
     router.post('/qrcode', function (request, response) {
         //if (request.method == 'GET' && request.url == '/qrcode') {
         //^^this part is already ensured by the express router.
@@ -23,7 +25,5 @@ module.exports = function (router) {
         response.type('svg');
         code.pipe(response);
     });
-    router.get('/', function (request, response) {
-
-    });
+    
 };
