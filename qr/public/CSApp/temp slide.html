@@ -1,0 +1,23 @@
+<script type="text/javascript">
+ssfunction openDialog(contents)
+{
+    document.getElementById("glass").style.display='block';
+    document.getElementById("panel").style.display='block';
+}
+
+function closeDialog()
+{
+    document.getElementById("glass").style.display='none';
+    document.getElementById("panel").style.display='none';
+}
+
+</script>
+<link href="f1.css" rel="stylesheet"/>
+<input type="button" value="Open Dialog" onclick="openDialog()" />
+
+<div id="glass" style="position: absolute; left: 0px; top: 0px; visibility: visible; width: 100%; height: 100%; display: block; background-color: black; opacity: 0.3; display: none;"></div>
+<div id="panel" style="position: absolute; left: 10%; top: 10%; overflow: visible; border: 3px solid #BABBBC; background:  #F3EBD6; width: 80%; height: 80%; padding: 5px; display: none;">
+    <input type="button" onclick="closeDialog()" value="Close" />
+	<button type = "button" class="button">Download to Device</button>
+		<button type = "button" class="button">Save in Google Contact</button>
+</div>
