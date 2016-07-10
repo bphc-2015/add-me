@@ -5,7 +5,7 @@ grunt.loadNpmTasks('grunt-contrib-jshint');
 grunt.loadNpmTasks('grunt-js-beautify');
 grunt.initConfig({
   jshint: {
-    all: ['Gruntfile.js', 'qr/**/*.js', 'app.js']
+    all: ['Gruntfile.js', 'qr/**/*.js', 'app.js', '!qr/public/libraries/**/*']
   },
   js_beautify: {
     options: {
