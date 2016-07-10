@@ -5,6 +5,8 @@
 		<title>Home Page</title>
         
         <link href="design.css" rel="stylesheet"/>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
+        
     </head>
 	<body>
         <!-- HOME PAGE PART -->
@@ -12,7 +14,7 @@
             <ul class="sidenav">
             <li><img src="face.jpg" alt="Smiley face" height="70" width="70"><h3 class="username" valign="middle">User Name</h3></li>
               <li><a class="active-tab" href="#home">Home</a></li>
-              <li><a href="#about">All Contacts</a></li>
+              <li><a href="#contacts">All Contacts</a></li>
               <li><a href="#Favourites">Favourites</a></li>
               <li><a href="#Recent">Recently Used</a></li>
               <li><a href="#print">Print</a></li>
@@ -29,8 +31,24 @@
                 <button type = "button" class="button">Download to Device</button>
                 <button type = "button" class="button">Save in Google Contact</button>
             </div>
-        </div>
         
+        <!-- Listing and adding new contacts -->
+        <div id="contacts">
+            <div ng-app="groupContact" ng-controller="MainCtrl">
+            <div ng-repeat="contact in contacts">
+                {{contact.name}} - {{contact.phone}}
+           </div>
+           <br> 
+           <form ng-submit="addContact()">
+           <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" ng-model="name" /> 
+            <input type="text" class="form-control" placeholder="Phone" ng-model="phone" /> 
+           </div> <br>
+           <button type="submit" >Add contact</button>
+           </form>
+           </div>
+        </div>
+        </div>
         <!-- LOGIN PAGE PART -->
         <div id="loginp">
             <!-- Heading part will be changed -->
@@ -96,5 +114,6 @@
         </div>
         <script src="jquery3.0.0-min.js"></script>
         <script src="script.js"></script>
+        <script src="angularApp.js"></script>
 	</body>
 </html>

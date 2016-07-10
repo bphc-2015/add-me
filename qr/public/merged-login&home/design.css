@@ -253,3 +253,9 @@ img {
 	padding: 10px;
     display: inline-block;
 }
+
+#contacts{
+    position: absolute;
+    top: 800px;
+    left: 400px;
+}
