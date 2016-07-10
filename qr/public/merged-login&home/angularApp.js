@@ -1,5 +1,22 @@
 var app = angular.module('groupContact',[]);
 
+/*app.config([
+    '$stateProvider',
+    '$urlRouterProvider',
+    function($stateProvider,$urlRouterProvider){
+        $stateProvider
+        .state('login',{
+            url: '/login',
+            templateUrl: '/login.html',
+            controller: 'MainCtrl',
+        })
+        /*.state('home', {
+            url: '/home',
+            templateUrl: '/home.html',
+            controller: 'HomeCtrl',
+        });*/
+        //$urlRouterProvider.otherwise('login');
+//}]);
 app.controller('MainCtrl',[
     '$scope',
     function($scope){
@@ -27,15 +44,36 @@ app.controller('MainCtrl',[
             {name: 'Rishabh', phone: 21},
             {name: 'Pranita', phone: 22}
         ];
+        $scope.groups = [
+            {name: 'DPS', members: []},
+            {name: 'Magnolia', members: []},
+            {name:'Quartz', members: []},
+            {name: 'BITS', members: []}
+        ];
         $scope.addContact = function(){
                 if(!$scope.name || $scope.name === '' || !$scope.phone || $scope.phone === '') { return; }
                   $scope.contacts.push({name: $scope.name, phone: $scope.phone});
                   $scope.name=''; $scope.phone='';
                  };
-        /*$scope.addGroup = function(contact){
-            //if(!$scope.name || $scope.name === '' || !$scope.phone || $scope.phone === '') { return; }
-            $scope.groups.members.push(
-            {name: $scope.contact, phone: 0}
-            );
-        };*/
+        $scope.addGroup = function (contact, groupname) {
+            contact.name = contact.name;
+            contact.phone = contact.phone;
+            $scope.groups.forEach(function (elem, index) {
+                if (elem.name == groupname) {
+                    //checking for duplicates
+                    var x = 0;
+                    elem.members.some(function (mem, index){
+                        if(mem.phone == contact.phone)
+                            { x=1;}
+                    });
+                    //pushing data 
+                    if(x===0){
+                    elem.members.push({
+                        name: contact.name,
+                        phone: contact.phone
+                    });
+                   }
+                }
+            });
+        };
 }]);

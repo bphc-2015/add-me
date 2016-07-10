@@ -6,9 +6,8 @@
         
         <link href="design.css" rel="stylesheet"/>
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
-        
     </head>
-	<body>
+	<body ng-app="groupContact" ng-controller="MainCtrl">
         <!-- HOME PAGE PART -->
         <div id="homep">
             <ul class="sidenav">
@@ -25,30 +24,48 @@
             <div class="main-content">
                 <input type = "text" id = "search" placeholder = "Search by name or part of number" size="60" />
                 <button type = "button" class="button">Search!</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- these line breaks need to be removed may be -->
-                <button type = "button" class="button">Groups</button>
+                <button type = "button" class="button"><a href="#groups">Groups</a></button>
                 <button type = "button" class="button">Edit Contact</button>
-                <button type = "button" class="button">Add Contact</button><br><br><br><br>
+                <button type = "button" class="button"><a href="#form">Add Contact</a></button><br><br><br><br>
                 <button type = "button" class="button">Download to Device</button>
                 <button type = "button" class="button">Save in Google Contact</button>
             </div>
         
         <!-- Listing and adding new contacts -->
-        <div id="contacts">
-            <div ng-app="groupContact" ng-controller="MainCtrl">
-            <div ng-repeat="contact in contacts">
-                {{contact.name}} - {{contact.phone}}
-           </div>
-           <br> 
-           <form ng-submit="addContact()">
-           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Name" ng-model="name" /> 
-            <input type="text" class="form-control" placeholder="Phone" ng-model="phone" /> 
-           </div> <br>
-           <button type="submit" >Add contact</button>
-           </form>
-           </div>
-        </div>
-        </div>
+    <div id="contacts">
+        <div ng-repeat="contact in contacts">
+      {{contact.name}} - {{contact.phone}}
+    </div>
+    <br> 
+    <form id="form" ng-submit="addContact()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Name" ng-model="name" /> 
+      </div>
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Phone" ng-model="phone" /> 
+      </div>
+      <button type="submit">Add contact</button>
+    </form>
+    <br> <br>
+    </div>
+    <div id="groups">
+    <div ng-repeat="group in groups">
+      {{group.name}} 
+    <form ng-submit="addGroup(contact.name,group.name)">
+      <select ng-model="contact.name" data-ng-options="contact as contact.name for contact in contacts" >
+          <option value="">--Select--</option>
+      </select>
+     <button type="submit"> Add! </button>
+    </form>
+    <br><br>
+      <div ng-repeat="member in group.members">
+          {{member.name}} - {{member.phone}} 
+      </div>
+      <br>
+    </div>
+    </div>
+  </div>
+        
         <!-- LOGIN PAGE PART -->
         <div id="loginp">
             <!-- Heading part will be changed -->
