@@ -1,4 +1,4 @@
-var app = angular.module('groupContact',[]);
+var app = angular.module('groupContact', []);
 
 /*app.config([
     '$stateProvider',
@@ -77,3 +77,4 @@ app.controller('MainCtrl',[
             });
         };
 }]);
+
