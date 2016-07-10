@@ -1,0 +1,261 @@
+body{
+    background-image: url("whole_network6.png");
+}
+
+#homep, #loginp{
+    height: 100%;
+    width: 100%;
+}
+
+#homep{
+    display: none;
+}
+
+a{
+    text-decoration: none;
+    color: #1ab188;
+}
+a:hover{
+    color: #179b77;
+    font-size: 18px;
+    text-decoration: underline;
+}
+
+.heading{
+    background: rgba(19, 35, 47, 0.9);
+    color: azure;
+    text-align: center;
+}
+
+.menu li{
+    list-style: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 5px 5px 5px 5px;
+    margin-left: 10px;
+    padding: 3px;
+    
+}
+
+.name{
+    text-transform: uppercase;
+    font-family: monospace;
+    text-decoration: underline;
+    color: coral;
+}
+
+/*.about{
+    float: right;
+    margin-right: 10px;
+    padding-right: 10px;
+    font-family: cursive;
+}*/
+
+.form {
+    background: rgba(19, 35, 47, 0.9);
+    padding: 40px;
+    max-width: 600px;
+    margin: 60px auto;
+    border-radius: 4px;
+}
+
+.main-tab{
+    list-style: none;
+    padding: 0;
+    margin: 0 0 40px 0;
+}
+
+.main-tab:after{
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.main-tab li a{
+    box-sizing: border-box;
+    text-decoration: none;
+    padding: 15px;
+    background: rgba(160, 179, 176, 0.25);
+    color: #a0b3b0;
+    font-size: 20px;
+    float:left;
+    width: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.main-tab li a:hover{
+    background: #336699;
+    color: #ffffff;
+    font-size: 21px;
+}
+
+.main-tab .active a{
+    background: #447799;
+    color: #ffffff;
+}
+
+.content > div:last-child {
+    display:none;
+}
+
+h1{
+    text-align: center;
+    color: #ffffff;
+    font-weight: 300;
+    margin 0 0 40px;
+}
+
+.field input{
+    width:100%;
+    height: 100%;
+    font-size: 22px;
+    padding: 5px 10px;
+    background: none;
+    background-image: none;
+    border: 1px solid #a0b3b0;
+    color: #ffffff;
+    border-radius: 0;
+}
+
+input:focus{
+    outline: 0;
+    border-color: #1ab188;
+}
+
+textarea{
+    border: 2px solid #a0b3b0;
+}
+
+.field{
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.top:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+.top > div {
+    float: left;
+    width: 48%;
+    margin-right: 4%;
+}
+.top > div:last-child {
+    margin: 0;
+}
+
+.button-enter {
+    border: 0;
+    outline: none;
+    border-radius: 0;
+    padding: 15px 0;
+    font-size: 2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    background: #447799;
+    color: #ffffff;
+}
+.button-enter:hover, .button-enter:focus {
+    background: #336699;
+    cursor: pointer;
+}
+
+.button-block {
+    display: block;
+    width: 100%;
+}
+
+.forgot{
+    margin-top: -20px;
+    text-align: right;
+}
+
+/*HOME PAGE SPECIFICS*/
+/*body {
+	font-family:Gill Sans;
+    background-image: url("bg5.jpeg");
+    background-color: #cccccc;
+	background-size: 1360px 840px;
+    background-repeat: no-repeat;
+}*/
+
+.username{
+    color:skyblue;
+    margin-left: 3px;
+}
+
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+	border-radius: 4px;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.button:hover {
+    background-color: red; /* Green */
+    cursor: pointer;
+    color: white;
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.main-content input[type=text]:focus {
+    border: 3px solid #555;
+}
+.main-content input[type=button]:focus {
+    background-color: red;
+}
+.main-content input[type=text] {
+    border: 2px solid green;
+    border-radius: 4px;
+    width: 75%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+.sidenav {
+	
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: rgba(19, 35, 47, 0.8);
+    height: 100vh; /* Full height            YE KU NAHI CHANGE HO RAHI HAI?	 120%*/  
+    position: fixed; /* Make it stick, even on scroll */
+    overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+.sidenav li a {
+    display: block;
+    color: #fff;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+.sidenav li a:hover {
+    background-color: #555;
+    color: white;
+}
+.active-tab {
+    background-color: #4CAF50;
+    color: white;
+}
+.main-content {
+    margin-left: 25%;
+    padding: 1px 16px;
+    height: 1000px;
+}
+img { 
+	padding: 10px;
+    display: inline-block;
+}
+
+#contacts{
+    position: absolute;
+    top: 800px;
+    left: 400px;
+}
