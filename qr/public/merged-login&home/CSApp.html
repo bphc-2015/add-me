@@ -5,6 +5,7 @@
 		<title>Home Page</title>
         
         <link href="design.css" rel="stylesheet"/>
+        <!-- Angular library -->
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.3.10/angular.min.js"></script>
     </head>
 	<body ng-app="groupContact" ng-controller="MainCtrl">
@@ -31,12 +32,9 @@
                 <button type = "button" class="button">Save in Google Contact</button>
             </div>
         
-        <!-- Listing and adding new contacts -->
+    <!-- Listing and adding new contacts -->
     <div id="contacts">
-        <div ng-repeat="contact in contacts">
-      {{contact.name}} - {{contact.phone}}
-    </div>
-    <br> 
+      <!-- Adding a new contact -->
     <form id="form" ng-submit="addContact()">
       <div class="form-group">
         <input type="text" class="form-control" placeholder="Name" ng-model="name" /> 
@@ -46,9 +44,23 @@
       </div>
       <button type="submit">Add contact</button>
     </form>
+    <br>
+    <!-- Displaying all contacts -->
+    <div ng-repeat="contact in contacts">
+      {{contact.name}} - {{contact.phone}}
+    </div>
     <br> <br>
     </div>
     <div id="groups">
+     <!-- Adding a new group -->
+     <form ng-submit="newGroup()">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Group Name" ng-model="gname" /> 
+      </div>
+      <button type="submit">Add group</button>
+    </form>
+    <br> 
+    <!-- Choosing members of group --> 
     <div ng-repeat="group in groups">
       {{group.name}} 
     <form ng-submit="addGroup(contact.name,group.name)">
@@ -57,7 +69,8 @@
       </select>
      <button type="submit"> Add! </button>
     </form>
-    <br><br>
+    <br>
+    <!-- Displaying all members of a group --> 
       <div ng-repeat="member in group.members">
           {{member.name}} - {{member.phone}} 
       </div>

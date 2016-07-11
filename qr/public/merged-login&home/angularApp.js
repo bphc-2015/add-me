@@ -1,25 +1,12 @@
-var app = angular.module('groupContact', []);
+// including the angular module 
+var app = angular.module('groupContact',[]);
 
-/*app.config([
-    '$stateProvider',
-    '$urlRouterProvider',
-    function($stateProvider,$urlRouterProvider){
-        $stateProvider
-        .state('login',{
-            url: '/login',
-            templateUrl: '/login.html',
-            controller: 'MainCtrl',
-        })
-        /*.state('home', {
-            url: '/home',
-            templateUrl: '/home.html',
-            controller: 'HomeCtrl',
-        });*/
-//$urlRouterProvider.otherwise('login');
-//}]);
-app.controller('MainCtrl', [
-  '$scope',
-  function ($scope) {
+//controller for angular 
+app.controller('MainCtrl',[
+    '$scope',
+    function($scope){
+        
+    // array of objects - contacts
     $scope.contacts = [{
       name: 'Anisha',
       phone: 1
@@ -87,6 +74,8 @@ app.controller('MainCtrl', [
       name: 'Pranita',
       phone: 22
     }];
+        
+    //array of objects - groups
     $scope.groups = [{
       name: 'DPS',
       members: []
@@ -100,38 +89,40 @@ app.controller('MainCtrl', [
       name: 'BITS',
       members: []
     }];
-    $scope.addContact = function () {
-      if (!$scope.name || $scope.name === '' || !$scope.phone || $scope.phone === '') {
-        return;
-      }
-      $scope.contacts.push({
-        name: $scope.name,
-        phone: $scope.phone
-      });
-      $scope.name = '';
-      $scope.phone = '';
-    };
-    $scope.addGroup = function (contact, groupname) {
-      contact.name = contact.name;
-      contact.phone = contact.phone;
-      $scope.groups.forEach(function (elem, index) {
-        if (elem.name == groupname) {
-          //checking for duplicates
-          var x = 0;
-          elem.members.some(function (mem, index) {
-            if (mem.phone == contact.phone) {
-              x = 1;
-            }
-          });
-          //pushing data 
-          if (x === 0) {
-            elem.members.push({
-              name: contact.name,
-              phone: contact.phone
+        //adding a new contact
+        $scope.addContact = function(){
+                if(!$scope.name || $scope.name === '' || !$scope.phone || $scope.phone === '') { return; }
+                  $scope.contacts.push({name: $scope.name, phone: $scope.phone});
+                  $scope.name=''; $scope.phone='';
+                 };
+        //adding a new group
+        $scope.newGroup = function(){
+                 if(!$scope.gname || $scope.gname === '' ) {return;}
+                  $scope.groups.push({name: $scope.gname, members: []});
+                  $scope.gname='';
+                 };
+        //adding a member to a group 
+        $scope.addGroup = function (contact, groupname) {
+            contact.name = contact.name;
+            contact.phone = contact.phone;
+            $scope.groups.forEach(function (elem, index) {
+                if (elem.name == groupname) {
+                    //checking for duplicates
+                    var x = 0;
+                    elem.members.some(function (mem, index){
+                        if(mem.phone == contact.phone)
+                            { x=1;}
+                    });
+                    //pushing data 
+                    if(x===0){
+                    elem.members.push({
+                        name: contact.name,
+                        phone: contact.phone
+                    });
+                   }
+                }
             });
-          }
-        }
-      });
-    };
-  }
-]);
+
+        };
+
+}]);
