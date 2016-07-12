@@ -13,8 +13,11 @@
         <div id="homep">
             <ul class="sidenav">
             <li><img src="face.jpg" alt="Smiley face" height="70" width="70"><h3 class="username" valign="middle">User Name</h3></li>
-              <li><a class="active-tab" href="#home">Home</a></li>
+              <li><a class="active-tab" href=".main-content">Home</a></li>
               <li><a href="#contacts">All Contacts</a></li>
+                <li class="off"><div id="menu"> Groups</div>
+                    <ul id="list"> <li ng-repeat="group in groups"><a href="#/{{group._id}}">{{group.name}}</a></ul>
+              </li>
               <li><a href="#Favourites">Favourites</a></li>
               <li><a href="#Recent">Recently Used</a></li>
               <li><a href="#print">Print</a></li>

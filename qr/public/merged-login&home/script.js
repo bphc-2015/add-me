@@ -14,4 +14,16 @@ window.onload = function () {
     $('body').css("background", "url(bg5.jpeg) no-repeat");
     $('#homep').show();
   });
+
+  $("#menu").click(function(){
+		  $(".sidenav li #list").slideUp();
+		  $("li").removeClass("on");
+		  $("li").addClass("off");
+		  
+		  if($(this).next().is(':visible')==false){
+			   $(this).next().slideDown();
+			   $(this).parent.removeClass("off");
+			   $(this).parent.addClass("on");
+		   }
+	 });
 };

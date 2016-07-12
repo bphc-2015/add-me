@@ -264,3 +264,19 @@ img {
     top: 1600px;
     left: 400px;
 }
+.off ul{
+	display:none;
+}
+.on ul{
+	display:block;
+}
+#menu{
+     display: block;
+    color: #fff;
+    padding: 8px 0 8px 16px;
+    text-decoration: none;
+}
+#menu:hover {
+    background-color: #555;
+    color: white;
+}
