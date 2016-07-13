@@ -12,10 +12,10 @@
         <!-- HOME PAGE PART -->
         <div id="homep">
             <ul class="sidenav">
-            <li><img src="face.jpg" alt="Smiley face" height="70" width="70"><h3 class="username" valign="middle">User Name</h3></li>
+            <li><img src="images/face.jpg" alt="Smiley face" height="70" width="70"><h3 class="username" valign="middle">User Name</h3></li>
               <li><a class="active-tab" href=".main-content">Home</a></li>
               <li><a href="#contacts">All Contacts</a></li>
-                <li class="off"><div id="menu"> Groups</div>
+              <li class="off"><div id="menu"> Groups</div>
                     <ul id="list"> <li ng-repeat="group in groups"><a href="#/{{group._id}}">{{group.name}}</a></ul>
               </li>
               <li><a href="#Favourites">Favourites</a></li>
@@ -27,70 +27,80 @@
             </ul>
             <div class="main-content">
                 <input type = "text" id = "search" placeholder = "Search by name or part of number" size="60" />
-                <button type = "button" class="button">Search!</button><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>  <!-- these line breaks need to be removed may be -->
-                <button type = "button" class="button"><a href="#groups">Groups</a></button>
-                <button type = "button" class="button">Edit Contact</button>
-                <button type = "button" class="button"><a href="#form">Add Contact</a></button><br><br><br><br>
-                <button type = "button" class="button">Download to Device</button>
-                <button type = "button" class="button">Save in Google Contact</button>
+                <button class="button">Search!</button><br><br><br><br>  <!-- these line breaks need to be removed may be -->
+
+                <ul id="contact-options">
+                    <li><button class="button"><!--<a class="link" href="#groups">-->Groups</button></li>
+                    <li><button class="button"><!--<a class="link" href="#">-->Edit Contact</button></li>
+                    <li><button class="button"><!--<a class="link"  href="#form">-->Add Contact</button></li>
+                    <li><button class="button">Download to Device</button></li>
+                    <li><button class="button">Save in Google Contact</button></li>
+
+                </ul>
+               
+                <!-- Listing and adding new contacts -->
+                
+                <div id="contacts">
+                    <!-- Adding a new contact -->
+                    <form id="form" ng-submit="addContact()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Name" ng-model="name" /> 
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Phone" ng-model="phone" /> 
+                        </div>
+                        <button type="submit" class="addnew">Add contact</button>
+                    </form>
+                    <br>
+                    
+                    <!-- Displaying all contacts 
+                    <div ng-repeat="contact in contacts">
+                        {{contact.name}} - {{contact.phone}}
+                    </div>-->
+                <br> <br>
+                </div>
+                
+                <div id="groups">
+                    <!-- Adding a new group -->
+                    <form ng-submit="newGroup()">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="Group Name" ng-model="gname" /> 
+                        </div>
+                        <button type="submit" class="addnew">Add group</button>
+                    </form>
+                    <br/>
+                    
+                    <!-- Choosing members of group --> 
+                    <div ng-repeat="group in groups">
+                        {{group.name}} 
+                        <form ng-submit="addGroup(contact.name,group.name)">
+                            <select ng-model="contact.name" data-ng-options="contact as contact.name for contact in contacts" >
+                                <option value="">--Select--</option>
+                            </select>
+                            <button type="submit" class="add"> Add! </button>
+                        </form>
+                        <br/>
+                        
+                        <!-- Displaying all members of a group --> 
+                        <div ng-repeat="member in group.members">
+                            {{member.name}} - {{member.phone}} 
+                        </div>
+                        <br/>
+                    </div>
+                </div>
+                
             </div>
-        
-    <!-- Listing and adding new contacts -->
-    <div id="contacts">
-      <!-- Adding a new contact -->
-    <form id="form" ng-submit="addContact()">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Name" ng-model="name" /> 
-      </div>
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Phone" ng-model="phone" /> 
-      </div>
-      <button type="submit">Add contact</button>
-    </form>
-    <br>
-    <!-- Displaying all contacts -->
-    <div ng-repeat="contact in contacts">
-      {{contact.name}} - {{contact.phone}}
-    </div>
-    <br> <br>
-    </div>
-    <div id="groups">
-     <!-- Adding a new group -->
-     <form ng-submit="newGroup()">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Group Name" ng-model="gname" /> 
-      </div>
-      <button type="submit">Add group</button>
-    </form>
-    <br> 
-    <!-- Choosing members of group --> 
-    <div ng-repeat="group in groups">
-      {{group.name}} 
-    <form ng-submit="addGroup(contact.name,group.name)">
-      <select ng-model="contact.name" data-ng-options="contact as contact.name for contact in contacts" >
-          <option value="">--Select--</option>
-      </select>
-     <button type="submit"> Add! </button>
-    </form>
-    <br>
-    <!-- Displaying all members of a group --> 
-      <div ng-repeat="member in group.members">
-          {{member.name}} - {{member.phone}} 
-      </div>
-      <br>
-    </div>
-    </div>
-  </div>
+        </div>
         
         <!-- LOGIN PAGE PART -->
         <div id="loginp">
-            <!-- Heading part will be changed -->
+            <!-- Heading part will be changed
             <div class="heading">
                 <ul class="menu">
                     <li class="name"><b>Group Contact Sharing App</b></li>
-                    <!--<li class="about">About</li> -->
+                    <li class="about">About</li>
                 </ul>
-            </div>
+            </div> -->
             <div class="form">
                 <ul class="main-tab">
                     <li class="tab active"><a href="#register">Register</a></li>
@@ -139,13 +149,12 @@
                         <p class="forgot"><a href="#">Forgot Password?</a></p>
 
                         <button class="button-enter button-block">Log In</button>
-
                         
                     </div>
                 </div>
             </div>
         </div>
-        <script src="../libraries/jquery3.0.0-min.js"></script>
+        <script src="./../libraries/jquery3.0.0-min.js"></script>
         <script src="script.js"></script>
         <script src="angularApp.js"></script>
 	</body>
