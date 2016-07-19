@@ -1,10 +1,9 @@
 {
-  "name": "add-me",
-  "version": "1.0.0",
-  "description": "contacts sharing service",
-  "main": "qr/qrapp.js",
+  "name": "src",
+  "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "test": "nodejs qr/qrapp.js"
+    "start": "node ./bin/www"
   },
   "repository": {
     "type": "git",
@@ -18,10 +17,16 @@
   "homepage": "https://github.com/bphc-2015/add-me#readme",
   "dependencies": {
     "body-parser": "^1.15.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.2.0",
+    "ejs": "~2.4.1",
     "express": "^4.14.0",
     "html": "0.0.10",
+    "mongoose": "^4.5.5",
+    "morgan": "~1.7.0",
     "path": "^0.12.7",
-    "qr-image": "^3.1.0"
+    "qr-image": "^3.1.0",
+    "serve-favicon": "~2.3.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",

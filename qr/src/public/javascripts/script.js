@@ -11,7 +11,7 @@ window.onload = function () {
 
   $('.button-enter').click(function () {
     $('#loginp').hide();
-    $('body').css("background", "url(images/b12.jpg) no-repeat");
+    $('body').css("background", "url(/images/b12.jpg)"); // removed no-repeat so that all text can be seen 
     $('#homep').show();
   });
 
