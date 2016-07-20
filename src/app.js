@@ -5,10 +5,10 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-var mongoose = require('mongoose');
-//require('./models/Contacts');
-//require('./models/Groups');
-mongoose.connect('mongodb://localhost/test');
+/*var mongoose = require('mongoose');
+require('./models/Contacts');
+require('./models/Groups');
+mongoose.connect('mongodb://localhost/test');*/
 
 var routes = require('./routes/index');
 var users = require('./routes/users');

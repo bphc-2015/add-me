@@ -10,9 +10,9 @@ body{
     width: 100%;
 }
 
-#homep{
-    display: none;
-}
+/*#homep{
+    background-image: url("/images/b12.jpg");
+}*/
 
 a{
     text-decoration: none;
@@ -275,9 +275,9 @@ img {
     font-family: Open Sans;
 }
 
-.off ul{
+/*.off ul{
 	display:none;
-}
+}*/
 .on ul{
 	display:block;
 }
@@ -286,6 +286,7 @@ img {
     color: #fff;
     padding: 8px 0 8px 16px;
     text-decoration: none;
+    cursor:pointer;
 }
 #menu:hover {
     background-color: #555;
@@ -371,11 +372,13 @@ select {
     cursor:pointer;
 }
 
-/*#list{
-    position: absolute;
+#list{
+    /*position: absolute;
     top: 100px;
     left: 500px;
-    max-width: 400px;
+    /max-width: 400px;
     font-size: 19px;
-    font-family: Open Sans;
-}*/
+    font-family: Open Sans;*/
+    list-style: none;
+    cursor: pointer;
+}

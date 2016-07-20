@@ -1,4 +1,4 @@
-window.onload = function () {
+$(document).ready(function () {
   $('.tab a').click(function () {
 
     $(this).parent().addClass('active');
@@ -9,13 +9,13 @@ window.onload = function () {
     $(target).fadeIn(600);
   });
 
-  $('.button-enter').click(function () {
-    $('#loginp').hide();
+  /*$('.button-enter').click(function () {
+    //$('#loginp').hide();
     $('body').css("background", "url(/images/b12.jpg)"); // removed no-repeat so that all text can be seen 
-    $('#homep').show();
-  });
+    //$('#homep').show();
+  });*/
 
-  $("#menu").click(function(){
+  /*$("#menu").click(function(){
 		  $(".sidenav li #list").slideUp();
 		  $("li").removeClass("on");
 		  $("li").addClass("off");
@@ -25,5 +25,6 @@ window.onload = function () {
 			   $(this).parent.removeClass("off");
 			   $(this).parent.addClass("on");
 		   }
-	 });
-};
+	 });*/
+});
+

@@ -1,13 +1,68 @@
 // including the angular module 
-var app = angular.module('groupContact',[]);
+var app = angular.module('groupContact',['ui.router']);
+
+//config for angular
+app.config([
+'$stateProvider',
+'$urlRouterProvider',
+function($stateProvider, $urlRouterProvider) {
+    
+  $stateProvider
+    .state('login', {
+      url: '/login',
+      templateUrl: '/login.html',
+      controller: 'FirstCtrl'
+    });
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: '/home.html',
+      controller: 'MainCtrl'
+    });
+  $stateProvider
+    .state('contacts', {
+      url: '/contacts',
+      templateUrl: '/contacts.html',
+      controller: 'MainCtrl'
+    });
+  $stateProvider
+    .state('groups', {
+      url: '/groups',
+      templateUrl: '/groups.html',
+      controller: 'MainCtrl'
+    });
+  $stateProvider
+    .state('group', {
+      url: '/group/{id}',
+      templateUrl: '/group.html',
+      controller: 'GroupCtrl'
+    });
+  $urlRouterProvider.otherwise('login');
+}]);
+
+//factory for angular
+app.factory('contacts', [function(){
+    var o = {
+        contacts: []
+    };
+    return o;
+}]);
+app.factory('groups', [function(){
+    var o = {
+        groups: []
+    };
+    return o;
+}]);
 
 //controller for angular 
 app.controller('MainCtrl',[
     '$scope',
-    function($scope){
-        
+    'contacts',
+    'groups',
+    function($scope,contacts,groups){
+    $scope.contacts = contacts.contacts;
     // array of objects - contacts
-    $scope.contacts = [{
+    /*$scope.contacts = [{
       name: 'Anisha',
       phone: 1
     }, {
@@ -73,10 +128,11 @@ app.controller('MainCtrl',[
     }, {
       name: 'Pranita',
       phone: 22
-    }];
-        
+    }];*/
+
+    $scope.groups = groups.groups;
     //array of objects - groups
-    $scope.groups = [{
+    /*$scope.groups = [{
       name: 'DPS',
       members: []
     }, {
@@ -88,7 +144,7 @@ app.controller('MainCtrl',[
     }, {
       name: 'BITS',
       members: []
-    }];
+    }];*/
         //adding a new contact
         $scope.addContact = function(){
                 if(!$scope.name || $scope.name === '' || !$scope.phone || $scope.phone === '') { return; }
@@ -122,7 +178,14 @@ app.controller('MainCtrl',[
                    }
                 }
             });
-
         };
+}]);
+app.controller('FirstCtrl');
 
+app.controller('GroupCtrl', [
+'$scope',
+'$stateParams',
+'groups',
+function($scope, $stateParams, groups){
+    $scope.group = groups.groups[$stateParams.id];
 }]);
