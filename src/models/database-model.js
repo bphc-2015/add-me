@@ -23,7 +23,7 @@ var groups = mongoose.model('groups', groupSchema);
 var callback = function(err, data){
     if(err) return console.error(err);
     console.log(data);
-}
+};
 
 /*
 example: groups.find({name:"someName"}, callback);
